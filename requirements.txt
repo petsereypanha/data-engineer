@@ -1,0 +1,4 @@
+numpy===2.3.4
+PyYAML===6.0.3
+pandas===2.3.3
+pillow===12.0.0
