@@ -36,3 +36,21 @@ cooking_times_sorted = sorted(cooking_times)
 
 print("Restaurants (A–Z):", restaurants_sorted)
 print("Cooking times (ascending):", cooking_times_sorted)
+
+# Import the os module
+import os
+
+# Get the current working directory
+print("Current working directory:", os.getcwd())
+
+# Check the environment variables
+print("Environment variables:", os.environ)
+
+# Import the string module
+import string
+
+# Print all ASCII lowercase characters
+print(string.ascii_lowercase)
+
+# Print all punctuation
+print(string.punctuation)
