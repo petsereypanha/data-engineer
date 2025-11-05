@@ -105,3 +105,34 @@ def clean_text(text, lower=True):
     if not lower:
         return cleaned
     return cleaned.lower()
+
+
+# Define a function called concat
+def concat(*args):
+  """Concatenates multiple string arguments with spaces between them."""
+
+  result = ""
+
+  # Iterate over the Python args tuple
+  for arg in args:
+    result += " " + arg
+  return result
+
+# Call the function
+print(concat("Python", "is", "great!"))
+
+
+# Define a function called concat
+def concat(**kwargs):
+    """Concatenates keyword arguments into a single string with spaces."""
+
+    result = ""
+
+    # Iterate over the Python kwargs
+    for kwarg in kwargs.values():
+        result += " " + kwarg
+    return result
+
+
+# Call the function
+print(concat(start="Python", middle="is", end="great!"))
