@@ -44,3 +44,34 @@ def validate_password(password):
 # Call the function and store the result
 is_valid = validate_password("Passw0rd!")  # Replace with the desired password to test
 print("Is the password valid? ", is_valid)
+
+product = 'Wireless Mouse'
+
+# Define clean_text function
+def clean_text(text, lower=True):
+    clean_text = text.replace(' ', '_')
+    if lower == False:
+        return clean_text
+    else:
+        # Apply lowercase transformation
+        return clean_text.lower()
+
+# Test with default behavior
+print(clean_text(product))
+original_price = 899.99
+
+
+# Define the function with default arguments
+def calculate_discount(price, discount_percent=15, round_result=True):
+    discounted_price = price - (price * (discount_percent / 100))
+
+    if round_result == True:
+        # Round the result to two decimal places
+        return round(discounted_price, 2)
+    else:
+        return discounted_price
+
+
+# Call the function with keyword arguments
+final_price = calculate_discount(price=original_price, round_result=False, discount_percent=25)
+print(final_price)
