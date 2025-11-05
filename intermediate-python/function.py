@@ -75,3 +75,33 @@ def calculate_discount(price, discount_percent=15, round_result=True):
 # Call the function with keyword arguments
 final_price = calculate_discount(price=original_price, round_result=False, discount_percent=25)
 print(final_price)
+
+
+def calculate_discount(price, discount_percent=15, round_result=True):
+    # Add a single-line docstring
+    """Calculate the discounted price of a product."""
+
+    discounted_price = price - (price * (discount_percent / 100))
+    if round_result == True:
+        return round(discounted_price, 2)
+    else:
+        return discounted_price
+
+
+#  Access the docstring
+print(calculate_discount.__doc__)
+
+
+def clean_text(text, lower=True):
+    """
+    Clean text by replacing spaces with underscores and optionally converting to lowercase.
+    Args:
+        text (str): A string to be cleaned.
+        lower (bool): Whether to convert the text to lowercase.
+    Returns:
+        text (str): Cleaned string.
+    """
+    cleaned = text.replace(' ', '_')
+    if not lower:
+        return cleaned
+    return cleaned.lower()
