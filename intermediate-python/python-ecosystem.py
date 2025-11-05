@@ -54,3 +54,28 @@ print(string.ascii_lowercase)
 
 # Print all punctuation
 print(string.punctuation)
+
+# Import pandas as pd
+import pandas as  pd
+
+sales = {
+    'user_id': ['KM37', 'PR19', 'YU88', 'JB18', 'LP65'],
+    'date': ['01/05/2025', '01/05/2025', '01/06/2025', '01/06/2025', '01/06/2025'],
+    'order_value': [197.75, 208.21, 134.99, 317.81, 201.30]
+}
+
+# Convert sales to a pandas DataFrame
+sales_df = pd.DataFrame(sales)
+
+# Preview the first few rows
+print(sales_df.head())
+
+# Import pandas
+import pandas as pd
+
+# Read in sales.csv
+sales_df = pd.read_csv("../data/sales.csv")
+
+# Display the DataFrame info
+print("--- DataFrame Info ---")
+print(sales_df.info())
