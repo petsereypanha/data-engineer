@@ -105,3 +105,30 @@ plt.plot(time, strain[:num_samples])
 plt.xlabel('GPS Time (s)')
 plt.ylabel('strain')
 plt.show()
+
+# Import package
+import scipy.io
+
+# Load MATLAB file: mat
+mat = scipy.io.loadmat('data/ex3data1.mat')
+
+# Print the datatype type of mat
+print(type(mat))
+
+
+# Print the keys of the MATLAB dictionary
+print(mat.keys())
+
+# Print the type of the value corresponding to the key 'CYratioCyt'
+print(type(mat['CYratioCyt']))
+
+# Print the shape of the value corresponding to the key 'CYratioCyt'
+print(mat['CYratioCyt'].shape)
+
+# Subset the array and plot it
+data = mat['CYratioCyt'][25, 5:]
+fig = plt.figure()
+plt.plot(data)
+plt.xlabel('time (min.)')
+plt.ylabel('normalized fluorescence (measure of expression)')
+plt.show()
