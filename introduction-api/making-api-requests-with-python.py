@@ -65,3 +65,41 @@ requests.delete('http://localhost:3000/playlists/2')
 # Get the list of all existing playlists again
 response = requests.get('http://localhost:3000/playlists')
 print(response.text)
+
+# Make a request to the movies endpoint of the API
+response = requests.get('http://localhost:3000/____')
+
+if (response.status_code == 200):
+    print('The server responded succesfully!')
+
+# Check the response status code
+elif (response.status_code == 404):
+    print('Oops, that API could not be found!')
+
+response = requests.get('http://localhost:3000/lyrics')
+
+# Print the response content-type header
+print(response.headers['Content-Type'])
+
+# Print the response accept header
+print(response.headers['Accept'])
+
+# Set the content type to application/json
+headers = {'accept': 'application/json'}
+response = requests.get('http://localhost:3000/lyrics', headers=headers)
+
+# Print the response's text
+print(response.text)
+
+#  Add a header to use in the request
+headers = {'accept': 'application/xml'}
+response = requests.get('http://localhost:3000/lyrics', headers=headers)
+
+# Check if the server did not accept the request
+if (response.status_code == 406):
+    print('The server can not respond in XML')
+
+    # Print the accepted content types
+    print('These are the content types the server accepts: ' + response.headers['Accept'])
+else:
+    print(response.text)
