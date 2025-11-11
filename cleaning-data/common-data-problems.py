@@ -25,8 +25,8 @@ assert ride_sharing['user_type_cat'].dtype == 'category'
 # Print new summary statistics
 print(ride_sharing['user_type_cat'].describe())
 
-# Strip 'minutes' from duration
-ride_sharing['duration_trim'] = ride_sharing['duration'].str.strip('minutes')
+# Convert duration to string if not already, then strip 'minutes'
+ride_sharing['duration_trim'] = ride_sharing['duration'].astype(str).str.strip('minutes')
 
 # Convert duration_trim to integer
 ride_sharing['duration_time'] = ride_sharing['duration_trim'].astype(int)
@@ -64,3 +64,27 @@ ride_sharing.loc[ride_sharing['ride_dt'] > today, 'ride_dt'] = today
 
 # Print maximum of ride_dt column
 print(ride_sharing['ride_dt'].max())
+
+# Find duplicates
+duplicates = ride_sharing.duplicated(subset='ride_id', keep=False)
+# Sort your duplicated rides
+duplicated_rides = ride_sharing[duplicates].sort_values('ride_id')
+
+# Print relevant columns of duplicated_rides
+print(duplicated_rides[['ride_id', 'duration', 'user_birth_year']])
+
+# Drop complete duplicates from ride_sharing
+ride_dup = ride_sharing.drop_duplicates()
+
+# Create statistics dictionary for aggregation function
+statistics = {'user_birth_year': 'min' , 'duration': 'mean'}
+
+# Group by ride_id and compute new statistics
+ride_unique = ride_dup.groupby('ride_id').agg(statistics).reset_index()
+
+# Find duplicated values again
+duplicates = ride_unique.duplicated(subset='ride_id', keep=False)
+duplicated_rides = ride_unique[duplicates == True]
+
+# Assert duplicates are processed
+assert duplicated_rides.shape[0] == 0
