@@ -77,3 +77,16 @@ comp_cl.string('rest_name', 'rest_name', label='name', threshold=0.8)
 # Get potential matches and print
 potential_matches = comp_cl.compute(pairs, restaurants, restaurants_new)
 print(potential_matches)
+
+# Isolate potential matches with row sum >=3
+matches = potential_matches[potential_matches.sum(axis=1) >= 3]
+
+# Get values of second column index of matches
+matching_indices = matches.index.get_level_values(1)
+
+# Subset restaurants_new based on non-duplicate values
+non_dup = restaurants_new.loc[~restaurants_new.index.isin(matching_indices)]
+
+# Concatenate restaurants and non_dup
+full_restaurants = pd.concat([restaurants, non_dup])
+print(full_restaurants)
