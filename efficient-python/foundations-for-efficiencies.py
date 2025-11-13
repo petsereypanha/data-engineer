@@ -3,6 +3,7 @@ import numpy as np
 
 # Print the list created using the Non-Pythonic approach
 names = ['Jerry', 'Kramer', 'Elaine', 'George', 'Newman']
+welcome_guest = lambda guest_time: f"Welcome {guest_time[0]}! Your arrival time is {guest_time[1]} minutes."
 i = 0
 new_list= []
 while i < len(names):
