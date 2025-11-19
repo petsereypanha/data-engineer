@@ -7,3 +7,4 @@ tweepy===4.15.0
 missingno===0.5.2
 thefuzz===0.22.1
 recordlinkage===0.16
+json_normalize===0.1.7
