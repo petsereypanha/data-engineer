@@ -150,4 +150,25 @@ email_report = EmailOperator( # 1. Define the proper operator
 # Set the email task to run after the report is generated
 email_report << generate_report # 4. Set the email_report task to occur after the generate_report task
 
+# Create a function to determine if years are different
+def year_check(**kwargs):
+    current_year = int(kwargs['ds'][0:4])
+    previous_year = int(kwargs['prev_ds'][0:4])
+    if current_year == previous_year:
+        return 'current_year_task'
+    else:
+        return 'new_year_task'
+
+# Define the BranchPythonOperator
+branch_task = BranchPythonOperator(
+    task_id='branch_task',
+    dag=branch_dag,
+    python_callable=year_check,
+    provide_context=True
+)
+
+# Define the dependencies
+branch_task >> current_year_task
+branch_task >> new_year_task
+
 
