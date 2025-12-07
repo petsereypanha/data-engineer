@@ -10,7 +10,6 @@ A comprehensive collection of Python scripts and examples focused on data engine
 - [Installation](#installation)
 - [Usage](#usage)
 - [Topics Covered](#topics-covered)
-- [Data Files](#data-files)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -22,39 +21,16 @@ This repository contains hands-on examples and exercises covering essential data
 
 ```
 data-engineer/
-├── data/                                    # Sample datasets
-│   ├── a_movie.json
-│   ├── digits_header.txt
-│   ├── digits.csv
-│   ├── moby_dick.txt
-│   ├── sales.csv
-│   ├── seaslug.txt
-│   ├── test.hdf5
-│   ├── titanic_corrupt.txt
-│   ├── titanic.csv
-│   └── winequality-red.csv
+├── cleaning-data-in-python/                 # Data cleaning techniques
+├── data-manipulation-with-pandas/           # Pandas operations
 ├── importing-data-in-python/                # Data importing fundamentals
-│   ├── importing-data.py
-│   ├── introduction-and-flat-files.py
-│   └── relational-databases.pyi
 ├── intermediate-importing-data/             # Advanced data importing
-│   ├── diving-deep-into-the-Twitter-API.py
-│   ├── importing-data-from-the-Internet.py
-│   └── interacting-with-APIs.py
 ├── intermediate-python/                     # Python programming concepts
-│   ├── function.py
-│   ├── lambda-functions-and-error-handling.py
-│   └── python-ecosystem.py
 ├── introduction-api/                        # API fundamentals
-│   └── making-api-requests-with-python.py
 ├── introduction-to-python/                  # Python basics
-│   ├── control-flow-and-loops.py
-│   ├── data-types.py
-│   └── introduction.py
-├── scripts/                                 # Utility scripts
-│   ├── generate_digits.py
-│   ├── generate_h5py.py
-│   └── numpy_txt.py
+├── joining-data-with-pandas/                # Data merging and joining
+├── python-data-science-toolbox/             # Data science utilities
+├── streamlining-data-ingestion-with-pandas/ # Efficient data ingestion
 └── requirements.txt                         # Project dependencies
 ```
 
@@ -106,6 +82,18 @@ python intermediate-python/function.py
 
 ## 📚 Topics Covered
 
+### Cleaning Data in Python
+- Handling missing data
+- Data type conversions
+- Removing duplicates
+- Data validation techniques
+
+### Data Manipulation with Pandas
+- DataFrame operations
+- Filtering and sorting
+- Aggregations and grouping
+- Data transformation techniques
+
 ### Importing Data in Python
 - Reading flat files (CSV, TXT)
 - Working with Excel files
@@ -136,21 +124,30 @@ python intermediate-python/function.py
 - Loops (for, while)
 - Python fundamentals
 
-### API Interactions
+### Introduction to API
 - Making HTTP requests
 - RESTful API concepts
 - Authentication methods
 - Handling API responses
 
-## 📊 Data Files
+### Joining Data with Pandas
+- Inner joins
+- Outer joins
+- Left and right joins
+- Merging DataFrames
+- Concatenating data
 
-The `data/` directory contains various sample datasets for practice:
+### Python Data Science Toolbox
+- Advanced function techniques
+- Iterators and generators
+- List comprehensions
+- Data science utilities
 
-- **CSV files**: `digits.csv`, `sales.csv`, `titanic.csv`, `winequality-red.csv`
-- **JSON files**: `a_movie.json`
-- **Text files**: `moby_dick.txt`, `seaslug.txt`, `digits_header.txt`
-- **HDF5 files**: `test.hdf5`
-- **Specialized formats**: Various data formats for learning different import techniques
+### Streamlining Data Ingestion with Pandas
+- Efficient data loading
+- Optimizing data types
+- Chunking large files
+- Performance best practices
 
 ## 🤝 Contributing
 
